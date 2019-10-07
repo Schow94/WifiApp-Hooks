@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.js": "/WifiApp-Hooks/static/js/main.9168e5da.chunk.js",
+    "main.js.map": "/WifiApp-Hooks/static/js/main.9168e5da.chunk.js.map",
+    "runtime~main.js": "/WifiApp-Hooks/static/js/runtime~main.05db1823.js",
+    "runtime~main.js.map": "/WifiApp-Hooks/static/js/runtime~main.05db1823.js.map",
+    "static/js/2.9eba0785.chunk.js": "/WifiApp-Hooks/static/js/2.9eba0785.chunk.js",
+    "static/js/2.9eba0785.chunk.js.map": "/WifiApp-Hooks/static/js/2.9eba0785.chunk.js.map",
+    "index.html": "/WifiApp-Hooks/index.html",
+    "precache-manifest.d52ac9e18545d2a9420ebd5f9bb9d72b.js": "/WifiApp-Hooks/precache-manifest.d52ac9e18545d2a9420ebd5f9bb9d72b.js",
+    "service-worker.js": "/WifiApp-Hooks/service-worker.js"
+  }
+}
