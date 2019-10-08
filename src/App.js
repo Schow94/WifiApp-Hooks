@@ -1,5 +1,6 @@
 import React from 'react';
 
+import WifiApp from './WifiApp';
 import Routes from './Routes';
 import { LocationProvider } from './contexts/LocationContext';
 import Navbar from './Navbar';
@@ -15,7 +16,8 @@ function App() {
           <CssBaseline />
 
           <Navbar />
-          <Routes />
+          {/* <Routes /> */}
+          <WifiApp />
         </SelectedBizProvider>
       </BizListProvider>
     </LocationProvider>
