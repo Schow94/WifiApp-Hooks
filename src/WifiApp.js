@@ -9,9 +9,12 @@ import withStyles from '@material-ui/core/styles/withStyles';
 import { BizListContext } from './contexts/BizListContext';
 
 import axios from 'axios';
+const $ = window.$;
+
 const YELP_API_KEY = process.env.REACT_APP_YELP_API_KEY;
 
 const url = `https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search`;
+// const url = `https://api.yelp.com/v3/businesses/search?callback=?`;
 
 function WifiApp(props) {
   const { classes } = props;
@@ -24,20 +27,46 @@ function WifiApp(props) {
   const getBizList = async () => {
     let res = await axios.get(url, {
       headers: {
-        Authorization: `Bearer ${YELP_API_KEY}`
+        Authorization: `Bearer ${YELP_API_KEY}`,
       },
       params: {
         latitude: position.lat,
         longitude: position.long,
-        term: 'free wifi'
+        term: 'free wifi',
         // sort_by: 'distance'
-      }
+      },
     });
+
+    // let res = await $.getJSON(url, {
+    //   headers: {
+    //     Authorization: `Bearer ${YELP_API_KEY}`,
+    //   },
+    //   params: {
+    //     latitude: position.lat,
+    //     longitude: position.long,
+    //     term: 'free wifi',
+    //     // sort_by: 'distance'
+    //   },
+    // });
+
+    // let res = await $.ajax({
+    //   url: url,
+    //   datatype: 'jsonp',
+    //   params: {
+    //     latitude: position.lat,
+    //     longitude: position.long,
+    //     term: 'free wifi',
+    //     // sort_by: 'distance'
+    //   },
+    //   beforeSend: function (xhr, settings) {
+    //     xhr.setRequestHeader('Authorization', 'Bearer ' + YELP_API_KEY);
+    //   },
+    // });
 
     let businesses = res.data.businesses;
     console.log(businesses);
-    return businesses.map(x => {
-      return getBiz(biz => [...biz, x]);
+    return businesses.map((x) => {
+      return getBiz((biz) => [...biz, x]);
     });
   };
 
@@ -64,17 +93,17 @@ function WifiApp(props) {
   );
 }
 
-const styles = theme => ({
+const styles = (theme) => ({
   body: {
     fontFamily: 'Roboto',
     display: 'flex',
     flexDirection: 'row',
-    width: '100%'
+    width: '100%',
   },
   allResults: {
     marginTop: '1em',
-    marginLeft: '1em'
-  }
+    marginLeft: '1em',
+  },
 });
 
 export default withStyles(styles)(WifiApp);
